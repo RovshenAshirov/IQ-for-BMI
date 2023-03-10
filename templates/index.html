@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- ##### Hero Area Start ##### -->
+    <section class="hero-area bg-img bg-overlay-2by5"  style="background-image: url({% static 'img/bg-img/bg1.jpg' %});">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <!-- Hero Content -->
+                    <div class="hero-content text-center">
+                        <h2>Biz bilan IQ darajangizni zamonaviy usulda aniqlang!</h2>
+                        <a href="/" class="btn clever-btn">Boshlash</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Hero Area End ##### -->
+
+    <!-- ##### Cool Facts Area Start ##### -->
+    <section class="cool-facts-area section-padding-100-0">
+        <div class="container">
+            <div class="row">
+                <!-- Single Cool Facts Area -->
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="single-cool-facts-area text-center mb-100">
+                        <h2><span class="counter">{{stat.user}}</span></h2>
+                        <h5>Foydalanuvchilar</h5>
+                    </div>
+                </div>
+
+                <!-- Single Cool Facts Area -->
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="single-cool-facts-area text-center mb-100">
+                        <h2><span class="counter">{{stat.category}}</span></h2>
+                        <h5>Bo'limlar</h5>
+                    </div>
+                </div>
+
+                <!-- Single Cool Facts Area -->
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="single-cool-facts-area text-center mb-100">
+                        <h2><span class="counter">{{stat.test}}</span></h2>
+                        <h5>Testlar</h5>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- ##### Cool Facts Area End ##### -->
+    <div class="clever-catagory blog-details bg-img d-flex align-items-center justify-content-center p-3 height-400"
+         style="background-image: url({%static 'img/blog-img/4.jpg'%});">
+        <div class="blog-details-headline">
+            <h3>Loyiha haqida</h3>
+            {% comment %} <div class="meta d-flex align-items-center justify-content-center">
+                <a href="#">Sarah Parker</a>
+                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                <a href="#">Art &amp; Design</a>
+            </div> {% endcomment %}
+        </div>
+    </div>
+    <!-- ##### Catagory Area End ##### -->
+
+    <!-- ##### Blog Details Content ##### -->
+    <div class="blog-details-content section-padding-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-8">
+                    <!-- Blog Details Text -->
+                    <div class="blog-details-text">
+                        <p>Ushbu sayt orqali siz IQ darajangizni zamonaviy usulda aniqlashingiz mumkin. Asosan saytda interaktiv
+                            testlar bilan boyitilgan.</p>
+                        <h5 class="text-center py-4">Afzalliklari:</h5>
+                        <p>Bizning saytimiz sizning IQ darajangizni aniqlashga yordam beradigan turli xil testlar taklif qiladi.
+                            Sizning kognitiv qobiliyatlaringizni o'rganish va o'zingizni sinash uchun har xil testlar mavjud.
+                            Bizning testlarimizdan foydalanish orqali siz kamchiligizni aniqlashingiz mumkin.Bizning saytimiz
+                            orqali siz kognitiv qobiliyatlaringizni yaxshilash, xotira qobiliyatlaringizni oshirish va o'zingizni
+                            kuchliroq qilishingiz mumkin</p>
+                        <h5 class="text-center py-4">O'ziga hosligi:</h5>
+                        <p>Siz saytda IQ darajangizga aniqlab, u orqali nimalarga qodirligizni va nimalar qila olishingizni bilib
+                            olishingiz mumkin!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+{% endblock content %}
