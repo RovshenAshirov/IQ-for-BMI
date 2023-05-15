@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- ##### Hero Area Start ##### -->
+    <section class="hero-area bg-img bg-overlay-2by5"
+             style="background-image: url({% static 'img/bg-img/bg3.jpg' %}); height: 200px;">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <!-- Hero Content -->
+                    <div class="hero-content text-center">
+                        <h2>Aloqa</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ##### Blog Details Content ##### -->
+    <div class="blog-details-content section-padding-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-8">
+                    <!-- Blog Details Text -->
+                    <div class="blog-details-text">
+                        <h1>Bog'lanish uchun ma'lumot</h1>
+                        <p>Agar sizda biron bir savol yoki taklif bo'lsa, biz bilan bog'laning:</p>
+
+                        <div class="contact-details">
+                            <p><strong>E-pochta:</strong> rovshenashirov1619@gmail.com</p>
+                            <p><strong>Ijtimoiy tarmoqlar:</strong>
+                                <a href="https://t.me/Oliy_dasturchi" class="btn btn-primary mx-2">Telegram</a>
+                                <a href="https://www.instagram.com/rovshenashirov1619/" class="btn btn-primary mr-2">Instagram</a>
+                                <a href="https://www.facebook.com/rovshen.ashirov.1" class="btn btn-primary mr-2">Facebook</a>
+                                <a href="https://www.linkedin.com/in/rovshen-ashirov-aa8037275/"
+                                   class="btn btn-primary mr-2">LinkedIn</a>
+                            </p>
+                            <p><strong>Telefon raqam:</strong> +998 91 916 86 36</p>
+                            <p><strong>Manzil:</strong> Xorazm viloyati, Urganch shahri, Al-Xorazmiy ko'chasi 110-uy</p>
+                        </div>
+
+                        <p>Shu bilan bir qatorda, bizga xabar yuborish uchun quyidagi aloqa shaklidan foydalanishingiz mumkin:</p>
+
+                        <form method="post" action="#">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Ismingiz:</label>
+                                <input type="text" id="name" name="name" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="email" class="form-label">E-pochta manzili:</label>
+                                <input type="email" id="email" name="email" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Xabar:</label>
+                                <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Jo'natish</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

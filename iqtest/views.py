@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.http import HttpRequest
 from django.shortcuts import render, redirect
 
-from iqtest.models import Theme, Dictionary
+from iqtest.models import Test, Result
 
 
 def is_login(user):
@@ -15,9 +15,9 @@ def is_login(user):
 # Create your views here.
 def index(request: HttpRequest):
     u = User.objects.count()
-    t = Theme.objects.count()
-    d = Dictionary.objects.count()
-    stat = {'user': u, 'category': t, 'test': d}
+    t = Test.objects.count()
+    r = Result.objects.count()
+    stat = {'user': u, 'test': t, 'result': r}
     return render(request, 'index.html', {'user': request.user, 'stat': stat})
 
 
@@ -57,3 +57,15 @@ def reg(request: HttpRequest):
         except:
             return render(request, 'reg.html')
     return render(request, 'reg.html')
+
+
+def manual(request: HttpRequest):
+    return render(request, 'manual.html')
+
+
+def contact(request: HttpRequest):
+    return render(request, 'contact.html')
+
+
+def about(request: HttpRequest):
+    return render(request, 'about.html')

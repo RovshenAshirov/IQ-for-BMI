@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- ##### Hero Area Start ##### -->
+    <section class="hero-area bg-img bg-overlay-2by5"
+             style="background-image: url({% static 'img/bg-img/bg4.jpg' %}); height: 200px;">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <!-- Hero Content -->
+                    <div class="hero-content text-center">
+                        <h2>Biz haqimizda</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ##### Blog Details Content ##### -->
+    <div class="blog-details-content section-padding-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-8">
+                    <!-- Blog Details Text -->
+                    <div class="blog-details-text">
+                        <p>Bu yerda men haqimda ma'lumot bo'lishi kerak edi.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

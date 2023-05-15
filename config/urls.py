@@ -15,13 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from iqtest.views import index, login, reg, logout
+from iqtest.views import index, login, reg, logout, manual, contact, about
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', login),
     path('logout/', logout),
     path('reg/', reg),
+    path('manual/', manual),
+    path('contact/', contact),
+    path('about/', about),
     path('', index),
     path('test/', include('iqtest.urls')),
 
