@@ -3,12 +3,12 @@
 {% block content %}
     <section class="contact-area">
         <div class="container">
-        <h2>Registratsiya</h2>
+        <h2>Kirish</h2>
             <div class="row">
             
                 <!-- Contact Form -->
                 <div class="col-12 col-md-12">
-                    <div class="single-blog-area padding wow fadeInUp contact-form" data-wow-delay="250ms"">
+                    <div class="single-blog-area padding wow fadeInUp contact-form" data-wow-delay="250ms">
                         <form action="#" method="post">
                             {% csrf_token %}
                             <div class="row">
@@ -19,16 +19,11 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <input type="password" class="form-control" name="password1" id="password1" placeholder="Parol">
+                                        <input type="password" class="form-control" name="password" id="password" placeholder="Parol">
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <div class="form-group">
-                                        <input type="password" class="form-control" name="password2" id="password2" placeholder="Parolni tasdiqlang">
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn clever-btn w-10" id="regBtn">Registratsiya</button>
+                                    <button class="btn clever-btn w-10" id="regBtn">Kirish</button>
                                 </div>
                             </div>
                         </form>
@@ -38,6 +33,3 @@
         </div>
     </section>
 {% endblock content %}
-{% block js %}
-    <script src={% static 'js/reg.js' %}></script>
-{% endblock js %}
