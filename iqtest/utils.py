@@ -23,17 +23,14 @@ class Question:
         random.shuffle(lst)
         title = test['question']
         variant = {'a': lst[0], 'b': lst[1], 'c': lst[2], 'd': lst[3], 'e': lst[4], 'f': lst[5]}
-        print("id", test['id'])
         return {"title": title, 'id': test['id'], "variant": variant}
 
     @staticmethod
     def check(id, answer):
-        print("id", id)
         t = Test.objects.get(pk=id)
         r = t.correct == answer
         if r:
             Question.correct += 1
-        print(t, r)
         return r
 
     @staticmethod
