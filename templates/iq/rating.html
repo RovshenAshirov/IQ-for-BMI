@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <h2>Reyting <span id="theme_name"></span></h2>
+        <div class="col-12 col-md-12">
+            <div class="single-blog-area mb-100 wow fadeInUp" data-wow-delay="250ms">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Foydalanuvchi</th>
+                      <th>IQ daraja</th>
+                      <th>Sana</th>
+                      <th>Holat</th>
+                    </tr>
+                  </thead>
+                  <tbody id="main_table">
+                  <script>let i =0</script>
+                  {% for d in data %}
+                    <tr>
+                      <td>{{ d.user.username }}</td>
+                      <td>{{ d.result }}</td>
+                      <td>{{ d.created }}</td>
+                      <td>
+                            <div class="progress" style="height:40px;">
+                                <div class="progress-bar" id="progressBar"
+                                     style="width: {{ d.percent }}%;height:40px">{{ d.percent }}%</div>
+                            </div>
+                      </td>
+                    </tr>
+                  {% endfor %}
+                  </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

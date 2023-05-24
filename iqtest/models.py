@@ -24,3 +24,7 @@ class Result(models.Model):
     user = models.ForeignKey(User, models.CASCADE)
     result = models.IntegerField()
     created = models.DateTimeField(auto_now_add=True)
+
+    def percent(self) -> int:
+        correct = (self.result - 68) / 2;
+        return int(correct / 30 * 100)

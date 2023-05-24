@@ -119,3 +119,16 @@ def post_question(request: HttpRequest):
         data['answer'] = 'correct'
     data['correct'] = Question.get_correct(q_id)
     return JsonResponse(data)
+
+
+@user_passes_test(is_login, '/login/')
+def stat(request: HttpRequest):
+    objs = list(Result.objects.filter(user_id=request.user.pk).all())
+    return render(request, 'iq/stat.html', {'data': objs})
+
+
+@user_passes_test(is_login, '/login/')
+def rating(request: HttpRequest):
+    objs = list(Result.objects.all())
+    objs.sort(key=lambda x: x.result, reverse=True)
+    return render(request, 'iq/rating.html', {'data': objs})
