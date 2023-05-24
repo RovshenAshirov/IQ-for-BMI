@@ -1489,6 +1489,13 @@ textarea:focus {
   padding-left: 7%;
   padding-right: 7%; }
 
+.fill {
+  max-width: 124px;
+  max-height: 124px;
+  padding: 0;
+  margin: 0;
+}
+
 .single-blog-area {
   position: relative;
   z-index: 1;
