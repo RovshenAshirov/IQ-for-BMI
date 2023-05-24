@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- ##### Blog Details Content ##### -->
+    <div class="blog-details-content section-padding-100-0">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-8">
+                    <!-- Blog Details Text -->
+                    <div class="blog-details-text">
+                        <h5 class="text-center py-4" id="iq_score"></h5>
+                        <p id="iq_ability"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+{% block js %}
+    <script src={% static 'js/end.js' %}></script>
+{% endblock js %}

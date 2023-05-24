@@ -1,14 +1,16 @@
+import json
+
 from django.contrib import auth
 from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth.models import User
-from django.http import HttpRequest
+from django.forms.models import model_to_dict
+from django.http import HttpRequest, JsonResponse
 from django.shortcuts import render, redirect
-
-from iqtest.models import Test, Result
+from iqtest.models import Test, Result, Ability
+from iqtest.utils import Question
 
 
 def is_login(user):
-    print(user)
     return user.is_authenticated
 
 
@@ -69,3 +71,51 @@ def contact(request: HttpRequest):
 
 def about(request: HttpRequest):
     return render(request, 'about.html')
+
+
+@user_passes_test(is_login, '/login/')
+def test(request: HttpRequest):
+    return render(request, 'iq/game.html')
+
+
+@user_passes_test(is_login, '/login/')
+def end(request: HttpRequest):
+    return render(request, 'iq/end.html')
+
+
+@user_passes_test(is_login, '/login/')
+def get_question(request: HttpRequest):
+    p = json.loads(request.body)
+    if p.get('start', False):
+        test = Test.objects.all()
+        tests = []
+        for t in test: tests.append(model_to_dict(t))
+        Question.set_tests(tests)
+        return JsonResponse({'total': Question.get_total(), 'bonus': 1})
+    if Question.get_total() == 0:
+        score = Question.get_score()
+        Result.objects.create(
+            user_id=request.user.pk,
+            result=68 + score * 2
+        )
+        ability = Ability.objects.get(id=score+1)
+        return JsonResponse({'finish': True, 'username': request.user.username, 'iq': ability.iq, 'ability': ability.ability})
+    data = Question.get()
+    return JsonResponse(data)
+
+
+@user_passes_test(is_login, '/login/')
+def post_question(request: HttpRequest):
+    p = json.loads(request.body)
+    q_id: str = p['answer'][-6:-4]
+    if q_id.startswith('/'):
+        q_id = q_id[-1:]
+    reqireds = ['id', 'answer']
+    for r in reqireds:
+        if r not in p:
+            return JsonResponse({'ok': False, 'error': f'{r} required'})
+    data = {'answer': 'incorrect'}
+    if Question.check(q_id, p['answer']):
+        data['answer'] = 'correct'
+    data['correct'] = Question.get_correct(q_id)
+    return JsonResponse(data)

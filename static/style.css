@@ -204,6 +204,11 @@ img {
   .section-heading.white h3 {
     color: #ffffff; }
 
+.card-body .custom-control.custom-radio{ padding-left: 0 !important;}
+  .custom-control-label::before,
+  .custom-control-label::after {
+    display: none !important;
+  }
 /* Miscellaneous */
 .bg-animated {
   width: 100%;
@@ -273,7 +278,6 @@ img {
 .mfp-image-holder .mfp-close,
 .mfp-iframe-holder .mfp-close {
   color: #ffffff;
-  right: 0;
   padding-right: 0;
   width: 30px;
   height: 30px;
@@ -301,7 +305,6 @@ textarea:focus {
 /* ScrollUp */
 #scrollUp {
   background-color: #3762f0;
-  border-radius: 0;
   bottom: 60px;
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
   color: #ffffff;
@@ -971,7 +974,7 @@ textarea:focus {
       padding-left: 15px; }
       .clever-review .single-review .review-admin .text h6 {
         font-size: 14px;
-        margin-bottom: 0px; }
+        margin-bottom: 0; }
       .clever-review .single-review .review-admin .text span {
         font-size: 12px;
         color: rgba(0, 0, 0, 0.4); }
@@ -1679,7 +1682,7 @@ textarea:focus {
       padding-left: 15px; }
       .comments-area .comments-list .single-comment-wrap .comment-admin .text h6 {
         font-size: 14px;
-        margin-bottom: 0px; }
+        margin-bottom: 0; }
       .comments-area .comments-list .single-comment-wrap .comment-admin .text span {
         font-size: 12px;
         color: rgba(0, 0, 0, 0.4); }
@@ -1779,8 +1782,6 @@ textarea:focus {
 
 /* :: 13.0 Contact Area */
 .contact--info {
-  position: relative;
-  z-index: 1;
   position: relative;
   z-index: 1;
   padding: 35px 30px;

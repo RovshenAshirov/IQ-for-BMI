@@ -6,12 +6,10 @@
     // :: 1.0 Preloader Active Code
     browserWindow.on('load', function () {
         $('#preloader').fadeOut('slow', function () {
-            console.log('preloader');
             $(this).addClass('hidden');
         });
     });
     $('#customRadio').click(function (){
-        console.log('radio');
         $('#preloader').show();
     });
     $('.radiogroup').click(function() {
@@ -22,7 +20,9 @@
         var $this = $(this),
             finalDate = $(this).data('countdown');
         $this.countdown(finalDate, function (event) {
-            $this.html(event.strftime('<div>%D <span>Days</span></div> <div>%H <span>Hours</span></div> <div>%M <span>Minutes</span></div> <div>%S <span>Seconds</span></div>'));
+            $this.html(event.strftime('' +
+                '<div>%D <span>Days</span></div> ' + '<div>%H <span>Hours</span></div> ' +
+                '<div>%M <span>Minutes</span></div> <div>%S <span>Seconds</span></div>'));
         });
     });
 
