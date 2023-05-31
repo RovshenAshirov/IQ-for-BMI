@@ -131,4 +131,14 @@ def stat(request: HttpRequest):
 def rating(request: HttpRequest):
     objs = list(Result.objects.all())
     objs.sort(key=lambda x: x.result, reverse=True)
+    new_objs = []
+    for obj in objs:
+        users = []
+        for i in new_objs:
+            users.append(i.user)
+        if obj.user not in users:
+            new_objs.append(obj)
+    objs = new_objs
+    lst = list(range(1, len(objs)+1))
+    objs = list(zip(lst, objs))
     return render(request, 'iq/rating.html', {'data': objs})
